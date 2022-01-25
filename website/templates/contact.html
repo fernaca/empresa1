@@ -33,6 +33,12 @@
       <div class="col-md-6">
         <div class="right-content">
           <div class="container">
+            {% if message_name %}
+            
+            <center><h2>Gracias por comunicarte {{message_name}}</h2>
+            <h3>Recibimos tu mail, nos contactaremos pronto con vos.</h3></center>
+            <br><br><br><br>
+            {% else %}
             <form id="contact" action="{% url 'contact' %}" method="post">
               {% csrf_token %}
               <div class="row">
@@ -74,6 +80,7 @@
                 </div>
               </div>
             </form>
+            {% endif %}
           </div>
         </div>
       </div>

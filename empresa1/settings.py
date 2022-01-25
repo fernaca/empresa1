@@ -9,9 +9,14 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import django_heroku
+import dj_database_url
+from decouple import config
 from pathlib import Path
 import os
+from pickle import FALSE
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -49,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'empresa1.urls'
@@ -124,9 +131,20 @@ STATIC_URL = 'static/'
 # )
 
 STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, "static"),
-   ]
+    os.path.join(BASE_DIR, "static"),
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Email Settings
+EMAIL_HOST = 'localhost'  # smtp.gmail.com
+EMAIL_PORT = '1025'  # 587 generalmente usado por gmail
+EMAIL_HOST_USER = ''  # el mail del que envia, ej: fernando.caceres@gmail.com
+EMAIL_HOST_PASSWORD = ''  # passwrod pero no ponerla, ver environ django
+EMAIL_USE_TLS = False
+#EMAIL_USE_SSL = False
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+django_heroku.settings(locals())
