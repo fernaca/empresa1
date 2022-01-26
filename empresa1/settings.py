@@ -147,5 +147,4 @@ EMAIL_USE_TLS = False
 #EMAIL_USE_SSL = False
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 django_heroku.settings(locals())
