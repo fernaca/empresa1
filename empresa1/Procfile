@@ -1,1 +1,0 @@
-web: gunicorn empresa1.wsgi
