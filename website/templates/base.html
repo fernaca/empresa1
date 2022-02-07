@@ -21,10 +21,6 @@
     <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
     <link rel="stylesheet" href="{% static 'css/tooplate-main.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.css' %}">
-    <!--
-Tooplate 2114 Pixie
-https://www.tooplate.com/view/2114-pixie
--->
 </head>
 
 <body>
@@ -49,13 +45,16 @@ https://www.tooplate.com/view/2114-pixie
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item ">
                         <a class="nav-link" href="{% url 'home' %}">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'products' %}">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'posts' %}">Posteos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'about' %}">About Us</a>

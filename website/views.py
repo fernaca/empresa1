@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
-
+from django.views.generic import ListView
+from .models import Posteos
 # Create your views here.
 
 
@@ -37,3 +38,15 @@ def contact(request):
         return render(request, 'contact.html', {'message_name': name})
     else:
         return render(request, 'contact.html', {})
+
+# POST
+# Home / ListView
+
+
+class HomePost(ListView):
+    queryset = Posteos.objects.order_by('-created_on')  # Negativo para el Sort
+# Otra form de ordenar: ordering = ['-created_on']
+    model = Posteos
+    template_name = 'posts.html'
+    paginate_by = 2  # Objetos por página
+    context_object_name = 'Posteos'  # Default: object_list

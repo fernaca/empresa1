@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title%}Nosotros{% endblock %}
+{% block content %}
+
+<!-- Page Content -->
+<!-- About Page Starts Here -->
+<div class="about-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <div class="line-dec"></div>
+          <h1>Posteos</h1>
+        </div>
+      </div>
+      
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Titulo</th>
+            <th>Creado por</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for post in object_list %}
+            <tr>
+              <td>{{ post.title }}</td>
+              <td>{{ post.author.first_name }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      
+      </div>
+      {% include "pagination.html" %}
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
