@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title%}Articulo{% endblock %}
+{% block content %}
+<h2>{{ Posteos.title }}</h2>
+<!-- Page Content -->
+<div class="about-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <div class="line-dec"></div>
+          <h1>Articulo</h1>
+        </div> 
+        <h2>{{ posteos.title }}</h2>
+       <p>{{ posteos.body|safe }}</p>
+      </div>
+      <br><br>
+      <a href="{% url 'posts' %}" class="btn btn-secondary">Regresar</a>
+
+      
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

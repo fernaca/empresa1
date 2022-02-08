@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Posteos
 # Create your views here.
 
@@ -50,3 +50,10 @@ class HomePost(ListView):
     template_name = 'posts.html'
     paginate_by = 2  # Objetos por página
     context_object_name = 'Posteos'  # Default: object_list
+
+# DetailView
+
+
+class ArticleDetailView(DetailView):
+    model = Posteos
+    template_name = 'article_detail.html'

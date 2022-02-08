@@ -22,10 +22,10 @@
           </tr>
         </thead>
         <tbody>
-          {% for post in object_list %}
+          {% for posteos in object_list %}
             <tr>
-              <td>{{ post.title }}</td>
-              <td>{{ post.author.first_name }}</td>
+              <td><a href= {% url 'detail_post' posteos.pk %}> {{ posteos.title }}</a></td>
+              <td>{{ posteos.author.first_name }}</td>
             </tr>
           {% endfor %}
         </tbody>
