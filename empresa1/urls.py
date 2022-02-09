@@ -15,13 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
- 
+# para Media
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(''               , include('website.urls'), name="home"),
+    path('', include('website.urls'), name="home"),
     # path('single-product/', include('website.urls'), name="product"),
     # path('about/'         , include('website.urls'), name="about"),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 #handler404 = "website.views.page_not_found_view"

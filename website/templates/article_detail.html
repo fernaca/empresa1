@@ -12,6 +12,9 @@
           <h1>Articulo</h1>
         </div> 
         <h2>{{ posteos.title }}</h2>
+        {% if posteos.header_image %}
+          <img src="{{ posteos.header_image.url}}">
+          {% endif %}
        <p>{{ posteos.body|safe }}</p>
       </div>
       <br><br>
